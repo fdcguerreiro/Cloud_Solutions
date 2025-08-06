@@ -1,7 +1,5 @@
 # Secure Remote State - IAM & KMS Enhancements
 
-# Secure Remote State - IAM & KMS Enhancements
-
 This document outlines the recent changes made to enhance the security of Terraform remote state using KMS and the necessary IAM configuration.
 
 ---
