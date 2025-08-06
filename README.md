@@ -40,7 +40,7 @@ Before deploying environments, create the remote backend infrastructure:
 ### 1. Deploy Remote Backend (S3 + DynamoDB)
 
 ```bash
-cd cloud-app-terraform
+cd Cloud_Solutions
 terraform init
 terraform apply -target=module.state_backend
 ```
@@ -93,7 +93,7 @@ terraform apply
 
 | Module         | Purpose                                     |
 |----------------|---------------------------------------------|
-| `network`      | VPC, subnets, internet/NAT gateway          |
+| `network`      | VPC, subnets, security group                |
 | `compute`      | EC2 instances + Auto Scaling                |
 | `load_balancer`| Application Load Balancer                   |
 | `storage`      | S3 bucket for logs or static assets         |
