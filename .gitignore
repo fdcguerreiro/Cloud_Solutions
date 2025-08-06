@@ -1,4 +1,12 @@
+# Terraform
 **/.terraform/
 **/*.tfstate
 **/*.tfstate.*
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
 
