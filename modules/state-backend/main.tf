@@ -31,3 +31,24 @@ resource "aws_dynamodb_table" "tf_lock" {
     Environment = var.environment
   }
 }
+
+resource "aws_kms_key" "tf_state" {
+  description         = "KMS key for encrypting Terraform state"
+  enable_key_rotation = true
+
+  tags = {
+    Name        = "${var.bucket_name}-key"
+    Environment = var.environment
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "tf_state_encrypt" {
+  bucket = aws_s3_bucket.tf_state.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+      kms_master_key_id = aws_kms_key.tf_state.arn
+    }
+  }
+}
